@@ -1,0 +1,57 @@
+body {
+  font-family: "Arial" !important;
+}
+
+.card {
+  background-color: white;
+  box-shadow: -2px 5px 20px 1px rgba(0, 0, 0, 0.1);
+  padding-top: 20%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 10%;
+  border-radius: 10px;
+  height: auto;
+  margin-bottom: 15%;
+}
+.btn-primary {
+  border-radius: 20px !important;
+  height: 40px;
+}
+input {
+  width: 50%;
+  border-radius: 10px;
+  padding: 2%;
+  border: 1.5px solid #eee;
+  font-family: "Arial";
+}
+
+input:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+button:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+footer {
+  position: fixed;
+  bottom: 0px;
+  padding: 5%;
+  background-color: #007bff;
+  width: 100%;
+}
+.txt-footer {
+  font-size: 18px;
+  font-weight: 100;
+  color: #afd5ff;
+}
+.txt-footer span {
+  color: #fff;
+}

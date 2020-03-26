@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <link rel="stylesheet" type="text/css" href="app.css" />
+
+    <title>CRUD!</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12  card" id="app">
+          <h1>{{ titulo }}</h1>
+          <input
+            type="text"
+            class="form-control mt-3"
+            placeholder="ingrese el nombre de la tarea!"
+            v-model="Nuevatarea"
+            v-on:keyup.enter="saveTarea"
+          />
+          <button
+            class="btn btn-primary btn-block mt-3 mb-3"
+            @click="saveTarea"
+          >
+            Enviar
+          </button>
+          <div class="mt-3" v-for="item, index of tareas">
+            <div
+              role="alert"
+              :class="['alert', item.estado ? 'alert-success' : 'alert-danger']"
+            >
+              <div class="d-flex justify-content-between">
+                <div>
+                  {{ index }} - {{ item.nombre}} - {{item.estado}}
+                </div>
+                <div>
+                  <button class="btn btn-success" @click="updateTarea(index)">
+                    <i class="far fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger" @click="deleteTarea(index)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h2 class="txt-footer">Made by: <span>@Lirrums</span></h2>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
