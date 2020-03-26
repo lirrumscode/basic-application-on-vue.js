@@ -28,34 +28,34 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12  card" id="app">
-          <h1>{{ titulo }}</h1>
+          <h1>{{ title }}</h1>
           <input
             type="text"
             class="form-control mt-3"
             placeholder="ingrese el nombre de la tarea!"
-            v-model="Nuevatarea"
-            v-on:keyup.enter="saveTarea"
+            v-model="currentTask"
+            @keyup.enter="saveTask"
           />
           <button
             class="btn btn-primary btn-block mt-3 mb-3"
-            @click="saveTarea"
+            @click="saveTask"
           >
             Enviar
           </button>
-          <div class="mt-3" v-for="item, index of tareas">
+          <div class="mt-3" v-for="item, index of tasks">
             <div
               role="alert"
-              :class="['alert', item.estado ? 'alert-success' : 'alert-danger']"
+              :class="['alert', item.state ? 'alert-success' : 'alert-danger']"
             >
               <div class="d-flex justify-content-between">
                 <div>
-                  {{ index }} - {{ item.nombre}} - {{item.estado}}
+                  {{ index }} - {{ item.name }} - {{ item.state }}
                 </div>
                 <div>
-                  <button class="btn btn-success" @click="updateTarea(index)">
+                  <button class="btn btn-success" @click="updateTask(index)">
                     <i class="far fa-edit"></i>
                   </button>
-                  <button class="btn btn-danger" @click="deleteTarea(index)">
+                  <button class="btn btn-danger" @click="deleteTask(index)">
                     <i class="fas fa-trash"></i>
                   </button>
                 </div>

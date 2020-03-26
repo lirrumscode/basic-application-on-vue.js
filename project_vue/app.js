@@ -1,37 +1,33 @@
 const app = new Vue({
-  el: "#app",
+  el: '#app',
   data: {
-    titulo: "TAREAS ",
-    tareas: [],
-    Nuevatarea: ""
+    title: 'TAREAS',
+    tasks: [],
+    currentTask: ''
   },
   methods: {
-    saveTarea: function() {
-      this.tareas.push({
-        nombre: this.Nuevatarea,
-        estado: false
+    saveTask() {
+      this.tasks.push({
+        name: this.currentTask,
+        state: false
       });
-      console.log(this.tareas);
-      this.Nuevatarea = "";
-      localStorage.setItem("tareas", JSON.stringify(this.tareas));
+
+      this.currentTask = '';
+      this.syncTaks();
     },
-    updateTarea: function(index) {
-      console.log(index);
-      this.tareas[index].estado = true;
-      localStorage.setItem("tareas", JSON.stringify(this.tareas));
+    updateTask(index) {
+      this.tasks[index].estado = true;
+      this.syncTaks();
     },
-    deleteTarea: function(index) {
-      console.log(index);
-      this.tareas.splice(index, 1);
-      localStorage.setItem("tareas", JSON.stringify(this.tareas));
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
+      this.syncTaks();
+    },
+    syncTaks() {
+      localStorage.setItem('taks', JSON.stringify(this.tasks));
     }
   },
-  created: function() {
-    let Database = JSON.parse(localStorage.getItem("tareas"));
-    if (Database == null) {
-      this.tareas = [];
-    } else {
-      this.tareas = Database;
-    }
+  created() {
+    this.tasks = JSON.parse(localStorage.getItem('taks')) || [];
   }
 });
